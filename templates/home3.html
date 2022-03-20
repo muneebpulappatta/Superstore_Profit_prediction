@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>profit Prediction</title>
-    <link rel="stylesheet" >      
+  <title>PROFIT PREDICTION</title>
+ <style>
+   body {
+            background-color: #e0e2e2c4;
+            text-align: center;
+            padding: 0px;
+        }
+  input[type=text], select {
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box
+}
+  </style>    
 </head>
 <body >
 
@@ -10,49 +25,61 @@
 <div  class="input form">
     <center>
     <form action="{{url_for('predict')}}"method="post" id="input head">
-    <h1 id="heading">profit Prediction </h1>
+    <h1 id="heading">PROFIT PREDICTION</h1>
     
-    <label>sales:</label>
-    <input type="text" name="sales" required="">  
+    <label>EXPECTED SALES($)</label> 
+    <br><input style="width: 14%; ;" type="range" min="10" max="25000" value="10"
+     oninput="this.nextElementSibling.value = this.value"  name="sales" >
+    <output>10</output>
+    <!-- <input style="padding: 5px" type="text" name="sales" required=" ">  -->
+
+
     <br>
     <br>
    
-    <label>Discount:</label>
-    <input type="text" name="discount" required="">    
+    <label> DISCOUNT(%)</label><br>
+    <input style="width: 15%; ;" type="range" min="0" max="100" value="0"  
+    oninput="this.nextElementSibling.value = this.value" name="discount" >
+    <output>0</output> 
+    <!--<input style="padding: 5px" type="text" name="discount" required=" ">  --> 
     <br>
     <br>
-    <label>Shipping cost:</label>
-    <input type="text" name="shipping" required="">  
+    <label>SHIPPING COST($)</label><br>
+    <input style="width: 15%; ;" type="range" min="0" max="1000" value="0"  
+    oninput="this.nextElementSibling.value = this.value" name="shipping" >
+    <output>0</output>
+      <!--<input style="padding: 5px" type="text" name="shipping" required=" ">  -->
     <br>
     <br>
-    <label> Quantity</label>
-    <input type="text" name="quantity" required="">  
     
-    <br>
-    <br>
-    <select  id="Segment" name = "Segment_Consumer" placeholder="select">
-        
-        <option value="2">Consumer</option>
-        <option value="3">Corporate</option>
-        <option value="4">Home Office</option>
+    <select style="padding: 5px" id="Segment" name = "Segment" > 
+      <option value="">-- Select Segment -- </option>
+        <option value="Consumer">Consumer</option>
+        <option value="Corporate">Corporate</option>
+        <option value="Home Office">Home Office</option>
     </select>
     <br>
     <br>
-    <select id="Category" name = "Category_Furniture">
-      <option value="3">Furniture</option> 
-	    <option value="2">Technology</option>
-      <option value="4">Office Supplies</option>
+    
+    <select style="padding: 5px" id="Category" name = "Category">
+      <option value="">-- Select Category -- </option>
+      <option value="Furniture">Furniture</option> 
+	    <option value="Technology">Technology</option>
+      <option value="Office Supplies">Office Supplies</option>
         
         
     </select>
     <br>
     <br>
-    <button id="submit" type="submit">Predict</button>
+    <button  id="submit" type="submit">Predict</button>
     <br>
     <br>
     <br>
   </form> 
   </center> 
+  
+  <h2 style="color:red";text-align:"center" id="result" >{{prediction_text_negative}}</h2>  
+  <h2 style="color:green";text-align:"center" id="result" >{{prediction_text_positive}}</h2> 
 </div>
 </body>
 </html>
