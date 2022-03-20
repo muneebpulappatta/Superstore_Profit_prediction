@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>profit Prediction</title>
+    <link rel="stylesheet" >      
+</head>
+<body >
+
+<!-- Input Form -->
+<div  class="input form">
+    <center>
+    <form action="{{url_for('predict')}}"method="post" id="input head">
+    <h1 id="heading">profit Prediction </h1>
+    
+    <label>sales:</label>
+    <input type="text" name="sales" required="">  
+    <br>
+    <br>
+   
+    <label>Discount:</label>
+    <input type="text" name="discount" required="">    
+    <br>
+    <br>
+    <label>Shipping cost:</label>
+    <input type="text" name="shipping" required="">  
+    <br>
+    <br>
+    <label> Quantity</label>
+    <input type="text" name="quantity" required="">  
+    
+    <br>
+    <br>
+    <select  id="Segment" name = "Segment_Consumer" placeholder="select">
+        
+        <option value="2">Consumer</option>
+        <option value="3">Corporate</option>
+        <option value="4">Home Office</option>
+    </select>
+    <br>
+    <br>
+    <select id="Category" name = "Category_Furniture">
+      <option value="3">Furniture</option> 
+	    <option value="2">Technology</option>
+      <option value="4">Office Supplies</option>
+        
+        
+    </select>
+    <br>
+    <br>
+    <button id="submit" type="submit">Predict</button>
+    <br>
+    <br>
+    <br>
+  </form> 
+  </center> 
+</div>
+</body>
+</html>
